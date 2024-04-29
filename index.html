@@ -1,40 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-color="rgb(162, 225, 247)">
+          <span style="font-size: 60px">TypeScript</span>
+        </section>
+        <section data-transition="convex">
+          <h4>
+            The birth of Typescript dates back to the year 2012, developed by
+            Microsoft with Anders Hejilsberg as the main architect.
+          </h4>
+          <img width="400" height="400" data-src="examples/assets/Anders.png" />
+        </section>
+        <section data-transition="convex">
+          <section>
+            TypeScript is a superset of JavaScript.
+            <img data-src="examples/assets/typescript.png" />
+          </section>
+          <section>
+            <img width="400" height="400" data-src="examples/assets/mem.jpg" />
+          </section>
+        </section>
+        <section data-transition="convex">
+          <section>
+            <span>What are the advantages of typescript?</span>
+            <ul style="color: rgb(79, 133, 200)">
+              <li class="fragment">Less Error Prone</li>
+              <li class="fragment">More Human Readable</li>
+              <li class="fragment">More Maintainable and Scalable</li>
+            </ul>
+          </section>
+          <section>
+            <img width="400" height="400" data-src="examples/assets/mem1.jpg" />
+          </section>
+        </section>
+        <section data-transition="convex">
+          <section>
+            <span>Important typescript concepts</span>
+          </section>
+          <section data-transition="convex">
+            <h4>Type Annotations</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+				let name: string = "John";
+    let age: number = 29;
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Interfaces</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+				interface Product {
+					id: number;
+					name: string;
+					price: number;
+				  }
+				  
+				  const product: Product = { id: 1, name: "T-shirt", price: 12 };
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Generics</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+              function identity&lt;T&gt;(value: T): T {
+                return value;
+              }
+              
+              const number = identity(5); 
+              const string = identity("hello"); 
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Classes</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+              class User {
+                name: string;
+                age: number;
+                constructor(name: string, age: number) {
+                  this.name = name;
+                  this.age = age;
+                }
+                greet() {
+                  console.log(`Hello, my name is ${this.name}!`);
+                }
+              }
+              const user = new User("Alice", 35);
+              user.greet(); 
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Union Types</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+              let code: string | number;
+              code = 123;   // OK
+              code = "ABC"; // OK
+              code = false; // Compiler Error
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Type Inference</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+              // This will automatically be inferred as 
+              // a number type because it is assigned a numeric value.
+              let age = 28;   // number 
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Type Aliases</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+              // Creating aliases for simple data types
+              type StringOrNumber = string | number;
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+              // Creating an alias for an object:
+              type User = {
+                id: StringOrNumber
+                firstName: string;
+                pointsCount: number;
+              }
+              const user = {
+                id: 208
+                firstName: 'Mike',
+                pointsCount: 1000,
+              };
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Enums</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+              enum ResourceType {
+                BOOK,
+                AUTHOR,
+                FILM,
+              }
+              console.log(ResourceType.BOOK); // 0
+              console.log(ResourceType.AUTHOR); // 1
+              enum Direction {
+                Up = 'Up',
+                Right = 'Right',
+                Down = 'Down',
+                Left = 'Left',
+              }
+              console.log(Direction.Right); // Right
+              console.log(Direction.Down); // Down
+				  </code></pre>
+          </section>
+          <section data-transition="convex">
+            <h4>Type Assertions</h4>
+            <div style="font-size: 28px; text-align: left; padding-left: 45px">
+              Example:
+            </div>
+            <pre><code data-trim data-noescape>
+              const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
+				  </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <span
+              >It was just a small part of such a powerful language as
+              TypeScript!</span
+            >
+          </section>
+          <section>
+            <img width="600" height="650" data-src="examples/assets/mem2.jpg" />
+          </section>
+        </section>
+        <section style="font-size: 60px">Thank you</section>
+      </div>
+    </div>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        backgroundTransition: "slide",
+      });
+    </script>
+  </body>
 </html>
